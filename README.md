@@ -1,70 +1,180 @@
-# Getting Started with Create React App
+# 🥪 1인 가구를 위한 편의점 조합 레시피 추천 웹앱
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ✨ 프로젝트 기획 의도
 
-## Available Scripts
+> **“편의점 조합으로 간편하고 즐거운 식사를”**
 
-In the project directory, you can run:
+1인 가구의 증가와 함께 **간편한 식사**에 대한 수요가 높아지고 있지만, 기존 레시피 서비스는 대부분 집밥이나 정식 위주입니다.  
+편의점 식재료를 활용한 **간편 레시피**는 찾기 어렵고, 사용자 맞춤형 추천 기능도 부족합니다.
 
-### `yarn start`
+그래서 저희는 다음과 같은 기능을 갖춘 웹앱을 기획했습니다:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ✅ **랜덤 레시피 추천**
+- ✅ **사용자 맞춤형 조합 공유 및 소통 (게시판)**
+- ✅ **Kakao Map API를 활용한 편의점 위치 안내**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> 혼밥도, 혼요리도 더 이상 어렵지 않도록!  
+> **편의점 식재료로 만들 수 있는 다양한 조합 레시피**를 제안합니다.
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ 핵심 기능
 
-### `yarn build`
+| 기능                 | 설명                                           |
+| -------------------- | ---------------------------------------------- |
+| **📌 CRUD**          | 게시글 생성 / 조회 / 수정 / 삭제 전부 구현     |
+| **🚀 SPA + 라우터**  | React Router 기반의 단일 페이지 어플리케이션   |
+| **🌀 가상 스크롤**   | 무한 스크롤을 통해 데이터 효율적 처리          |
+| **🧩 코드 스플리팅** | React `lazy` + `Suspense` 활용                 |
+| **🗺️ 외부 API 연동** | Kakao Map API 사용 (주변 편의점 위치 안내)     |
+| **📱 반응형 웹**     | PC / 태블릿 / 모바일 대응 UI                   |
+| **🧠 상태 관리**     | Redux                                          |
+| **⚙️ 성능 최적화**   | `React.memo`를 사용한 컴포넌트 리렌더링 최적화 |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 👨‍👩‍👧‍👦 팀원 & 역할 분담
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| 이름       | 역할                                                                    |
+| ---------- | ----------------------------------------------------------------------- |
+| **전하성** | 더미 데이터 생성<br>게시판 CRUD<br>무한 스크롤                          |
+| **윤요엘** | 전체 UI/UX 설계<br>SPA 구성 (Router, Lazy, Suspense)<br>마이페이지 구현 |
+| **김민식** | 외부 API 연동<br>편의점 위치 안내 화면 구현 (Kakao Map API)             |
 
-### `yarn eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📌 프로젝트 흐름 & UI
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> 아래는 프로젝트의 주요 기능 흐름과 각 페이지 UI를 시각화한 자료입니다.  
+> 플로우차트, 시연 GIF, 스크린샷 등을 통해 사용자 경험을 미리 확인할 수 있습니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 🏠 메인 페이지 (랜덤 레시피 추천)
 
-## Learn More
+- 사용자가 웹사이트에 접속하면 가장 먼저 보게 되는 페이지입니다.
+- 랜덤으로 편의점 재료 기반 레시피 조합을 추천받을 수 있습니다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### 🔁 Flowchart
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![메인 페이지 플로우차트](./assets/home-flowchart.png)
 
-### Code Splitting
+#### 🖼️ 스크린샷 (PC)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![메인 페이지 PC 버전](./assets/home-pic.png)
 
-### Analyzing the Bundle Size
+#### 🖼️ 스크린샷 (모바일)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![메인 페이지 모바일 버전](./assets/home-mb.png)
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 🧠 Redux 상태 관리 흐름
 
-### Advanced Configuration
+- 게시판, 사용자, 레시피 등 주요 데이터는 Redux를 통해 전역 상태로 관리됩니다.
+- API 호출 등은 컴포넌트 내부에서 수행하며, 처리 결과를 Redux 액션으로 전달해 상태를 갱신합니다
+- 상태 흐름을 시각화하여 전체 데이터 구조를 쉽게 이해할 수 있도록 했습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### 🔁 Redux 데이터 흐름도
 
-### Deployment
+![Redux 흐름도](./assets/redux-flowchart.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### 🎬 시연 GIF
 
-### `yarn build` fails to minify
+![메인 페이지 데모](./assets/home.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+### 📝 게시판 (레시피 조합 공유)
+
+- 사용자들이 자신만의 편의점 조합 레시피를 공유할 수 있는 공간입니다.
+- CRUD 기능이 구현되어 있어 작성/조회/수정/삭제가 가능합니다.
+
+#### 🔁 Flowchart
+
+![게시판 플로우차트](./assets/notice-flowchart.png)
+
+#### 🎬 시연 GIF
+
+![게시판 기능 데모](./assets/notice.gif)
+
+#### 🖼️ 스크린샷 (모바일)
+
+![게시판 모바일 버전](./assets/notice-mb.png)
+
+---
+
+### 🗺️ 후기 작성 및 편의점 위치 안내 (Kakao Map API)
+
+- Kakao Map API를 활용해 사용자 주변의 편의점을 확인할 수 있습니다.
+- 지도 기반 UI를 통해 편의점 이름, 위치 정보 등을 제공합니다.
+- 사용자들이 방문한 편의점에 대해 후기를 작성하고 공유할 수 있는 기능도 포함되어 있습니다.
+
+#### 🔁 Flowchart
+
+![지도 페이지 플로우차트](./assets/reviews-flowchart.png)
+
+#### 🎬 시연 GIF
+
+![지도 기능 데모](./assets/reviews.gif)
+
+#### 🖼️ 스크린샷 (모바일)
+
+![지도 페이지 모바일 스크린샷](./assets/reviews-mb.png)
+
+---
+
+### 🙍 마이페이지
+
+- 사용자가 작성한 게시글을 모아보고 관리할 수 있는 공간입니다.
+- 반응형 UI로 구성되어 있어 모바일/PC 모두 대응합니다.
+
+#### 🔁 Flowchart
+
+![마이페이지 플로우차트](./assets/mypage-flowchart.png)
+
+#### 🎬 시연 GIF
+
+![마이페이지 데모](./assets/mypage.gif)
+
+#### 🖼️ 스크린샷 (모바일)
+
+![마이페이지 모바일 스크린샷](./assets/mypage-mb.png)
+
+---
+
+## 📝 협업 증빙 (Notion)
+
+> 팀원들과의 협업 및 기획 내용은 아래 노션 페이지를 통해 확인할 수 있습니다:
+
+🔗 [김민식](https://your-notion-link-here.com)  
+_(해당 링크는 협업 증거 제출용입니다.)_
+
+---
+
+## 📦 기술 스택
+
+- **Frontend:** React, Redux, React Router, Styled-components, Sass
+- **API 연동:** Kakao Map API
+- **성능 최적화:** React.memo, lazy loading, Suspense
+- **기타:** 가상 스크롤, 반응형 웹, SPA 구조
+
+---
+
+## 🛠️ 사용 라이브러리 및 버전
+
+```json
+{
+  "axios": "^1.12.2",
+  "classnames": "^2.5.1",
+  "react-icons": "^5.5.0",
+  "react-redux": "^9.2.0",
+  "react-router-dom": "^7.9.4",
+  "react-virtualized": "^9.22.6",
+  "redux": "^5.0.1",
+  "redux-devtools-extension": "^2.13.9",
+  "sass": "^1.93.2",
+  "styled-components": "^6.1.19",
+  "web-vitals": "^2.1.0"
+}
+```
